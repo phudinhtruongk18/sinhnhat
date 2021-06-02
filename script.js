@@ -1,7 +1,10 @@
 const img_one = document.querySelector('.user01');
 const img_two = document.querySelector('.user02');
 const cake = document.querySelector('.cake');
-new Audio("sound.mp3").play()
+
+var sound = new Audio("sound.mp3");
+sound.play();
+sound.addEventListener('ended', () => sound.play());
 
 img_one.setAttribute('style', 'display: none;');
 img_two.setAttribute('style', 'display: none;');
