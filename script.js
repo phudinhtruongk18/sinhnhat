@@ -7,7 +7,7 @@ sound.play();
 sound.addEventListener('ended', () => {
     sound.src = "sound.mp3"
     sound.play();
-};
+});
 
 img_one.setAttribute('style', 'display: none;');
 img_two.setAttribute('style', 'display: none;');
