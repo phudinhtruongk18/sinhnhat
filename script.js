@@ -2,11 +2,11 @@ const img_one = document.querySelector('.user01');
 const img_two = document.querySelector('.user02');
 const cake = document.querySelector('.cake');
 
-var sound = new Audio();
+var sound = new Audio("sound.mp3");
 sound.play();
 sound.addEventListener('ended', () => {
     sound.src = "sound.mp3"
-    sound.play());
+    sound.play();
 };
 
 img_one.setAttribute('style', 'display: none;');
