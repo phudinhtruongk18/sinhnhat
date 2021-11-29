@@ -10,11 +10,30 @@
     
 <script> 
 
-    // You can add your logic to geerate JSON
-    var customJSON = "[{"id":"1","name":"TEST_1"},{"id":"2","name":"TEST_2"},{"id":"3","name":"TEST_3"},{"id":"4","name":"TEST_4"},{"id":"5","name":"TEST_5"}]" 
+const myList = document.querySelector('ul');
+const myRequest = new Request('products.json');
 
-    // Send a message for the outer page
-    window.top.postMessage(customJSON, '*')
+fetch(myRequest)
+  .then(response => response.json())
+  .then(data => {
+    for (const product of data.products) {
+      let listItem = document.createElement('li');
+      listItem.appendChild(
+        document.createElement('strong')
+      ).textContent = product.Name;
+      listItem.append(
+        ` can be found in ${
+          product.Location
+        }. Cost: `
+      );
+      listItem.appendChild(
+        document.createElement('strong')
+      ).textContent = `£${product.Price}`;
+      myList.appendChild(listItem);
+    }
+  })
+  .catch(console.error);
+
 
 </script> 
 </body> 
